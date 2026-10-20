@@ -1,29 +1,17 @@
-name: Build MuTube IPA
-
+name: Build MuTube
 on:
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Python and uv
-        uses: astral-sh/setup-uv@v3
-
-      - name: Download and Prepare Original YouTube IPA
-        run: |
-                 mkdir -p ipa
-                   curl -L -o ipa/YouTube_4.54.01_decrypted.ipa "https://github.com"
-
-      - name: Build Tweak
-        run: |
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: |
+          mkdir ipa
+          curl -L -o ipa/YouTube_4.54.01_decrypted.ipa "https://r2.dev"
           make
-
-      - name: Upload Finished IPA Artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: mutube-fixed-ipa
           path: "*.ipa"
