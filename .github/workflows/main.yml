@@ -9,7 +9,7 @@ jobs:
       - uses: astral-sh/setup-uv@v3
       - run: |
           mkdir ipa
-          curl -L -o ipa/YouTube_4.54.01_decrypted.ipa "https://r2.dev"
+          curl -L -k -o ipa/YouTube_4.54.01_decrypted.ipa "https://github.com"
           make
       - uses: actions/upload-artifact@v4
         with:
