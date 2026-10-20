@@ -16,7 +16,7 @@ jobs:
       - name: Download and Prepare Original YouTube IPA
         run: |
                  mkdir -p ipa
-          curl -L -o ipa/YouTube_4.54.01_decrypted.ipa "https://github.com"
+                   curl -L -o ipa/YouTube_4.54.01_decrypted.ipa "https://github.com"
 
       - name: Build Tweak
         run: |
